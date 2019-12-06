@@ -9,8 +9,10 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-alias Rumbl.Multimedia
+if Mix.env() == :dev do
+  alias Rumbl.Multimedia
 
-for category <- ~w(Action Drama Romance Comedy Sci-fi) do
-  Multimedia.create_category!(category)
+  for category <- ~w(Action Drama Romance Comedy Sci-fi) do
+    Multimedia.create_category!(category)
+  end
 end
